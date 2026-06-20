@@ -1,0 +1,91 @@
+/* ============================================================
+   armactl — color tokens
+   Source: website/index.html (dturovskiy/armactl) + TUI screenshot
+   Dark theme is the default brand expression.
+   ============================================================ */
+
+:root {
+  /* --- Backgrounds --- */
+  --bg-dark: #1B1B1E;        /* page background */
+  --bg-darker: #121214;      /* alternating sections, terminal bodies */
+  --bg-panel: #24242A;       /* panels, terminal headers, default border color */
+
+  /* --- Neon accents (the brand triad) --- */
+  --neon-green: #00FF94;     /* primary accent: prompts, CTAs, success */
+  --neon-blue: #00B2FF;      /* secondary accent: links, icons, section underlines */
+  --neon-orange: #F6AD55;    /* tertiary accent: warnings, philosophy/values */
+
+  /* --- Text --- */
+  --text-main: #E2E2E2;
+  --text-muted: #8E8E9E;
+  --heading-color: #FFFFFF;
+
+  /* --- Chrome / overlays --- */
+  --header-bg: rgba(27, 27, 30, 0.95);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --box-bg: rgba(36, 36, 42, 0.5);
+
+  /* --- Accent alphas (glows, tints, hovers) --- */
+  --neon-green-alpha-05: rgba(0, 255, 148, 0.05);
+  --neon-green-alpha-10: rgba(0, 255, 148, 0.1);
+  --neon-green-alpha-30: rgba(0, 255, 148, 0.3);
+  --neon-blue-alpha-05: rgba(0, 178, 255, 0.05);
+  --neon-blue-alpha-10: rgba(0, 178, 255, 0.1);
+  --neon-blue-alpha-30: rgba(0, 178, 255, 0.3);
+  --neon-orange-alpha-20: rgba(246, 173, 85, 0.2);
+
+  /* --- Terminal chrome dots (macOS-style traffic lights) --- */
+  --dot-red: #FF5F56;
+  --dot-yellow: #FFBD2E;
+  --dot-green: #27C93F;
+
+  /* --- Semantic aliases --- */
+  --surface-page: var(--bg-dark);
+  --surface-sunken: var(--bg-darker);
+  --surface-card: var(--bg-dark);
+  --surface-panel: var(--bg-panel);
+  --text-body: var(--text-main);
+  --text-secondary: var(--text-muted);
+  --text-heading: var(--heading-color);
+  --accent-primary: var(--neon-green);
+  --accent-secondary: var(--neon-blue);
+  --accent-tertiary: var(--neon-orange);
+  --border-default: var(--bg-panel);
+  --border-subtle: var(--border-light);
+  --link-color: var(--neon-blue);
+  --link-hover: var(--neon-green);
+
+  /* --- Status semantics --- */
+  --status-running: var(--neon-green);
+  --status-stopped: var(--dot-red);
+  --status-warning: var(--dot-yellow);
+  --status-info: var(--neon-blue);
+}
+
+/* ------------------------------------------------------------
+   Light theme scope — the website ships a CSS-only light mode.
+   Apply by adding class="theme-light" to a container.
+   ------------------------------------------------------------ */
+.theme-light {
+  --bg-dark: #F5F7FA;
+  --bg-darker: #EAECEF;
+  --bg-panel: #FFFFFF;
+  --neon-green: #00A86B;
+  --neon-blue: #0073E6;
+  --neon-orange: #E67300;
+  --text-main: #2D3748;
+  --text-muted: #718096;
+  --heading-color: #1A202C;
+  --header-bg: rgba(245, 247, 250, 0.95);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-light: rgba(0, 0, 0, 0.1);
+  --box-bg: rgba(255, 255, 255, 0.6);
+  --neon-green-alpha-05: rgba(0, 168, 107, 0.05);
+  --neon-green-alpha-10: rgba(0, 168, 107, 0.1);
+  --neon-green-alpha-30: rgba(0, 168, 107, 0.3);
+  --neon-blue-alpha-05: rgba(0, 115, 230, 0.05);
+  --neon-blue-alpha-10: rgba(0, 115, 230, 0.1);
+  --neon-blue-alpha-30: rgba(0, 115, 230, 0.3);
+  --neon-orange-alpha-20: rgba(230, 115, 0, 0.2);
+}

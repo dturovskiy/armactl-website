@@ -1,0 +1,31 @@
+/* ============================================================
+   armactl — minimal base styles for consumers
+   ============================================================ */
+
+.armactl-root {
+  font-family: var(--font-mono);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: var(--leading-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+.armactl-root h1,
+.armactl-root h2,
+.armactl-root h3,
+.armactl-root h4 {
+  font-family: var(--font-display);
+  font-weight: normal;
+  letter-spacing: var(--tracking-wide);
+  color: var(--heading-color);
+}
+
+.armactl-root a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.armactl-root a:hover {
+  color: var(--link-hover);
+}

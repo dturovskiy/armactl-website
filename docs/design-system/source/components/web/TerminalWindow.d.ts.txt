@@ -1,0 +1,14 @@
+/**
+ * Terminal window chrome with traffic-light dots and a dark mono body.
+ * @startingPoint section="Web" subtitle="Terminal window with prompt lines" viewport="700x260"
+ */
+export interface TerminalWindowProps {
+  /** Header title, muted. Default "operator@ubuntu: ~". */
+  title?: string;
+  /** Terminal lines. Use spans with class prompt | output | ok | warn | info for coloring. */
+  children?: any;
+  style?: any;
+}
+
+/** Blinking green block caret (1s step-end). */
+export interface TerminalCursorProps {}

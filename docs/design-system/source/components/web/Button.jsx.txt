@@ -1,0 +1,43 @@
+import React from 'react';
+
+const BTN_CSS = `
+.ac-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:12px 24px; font-family:var(--font-mono); font-size:var(--text-sm);
+  font-weight:var(--weight-semibold); text-transform:uppercase; letter-spacing:var(--tracking-wide);
+  background-color:transparent; cursor:pointer; transition:all var(--transition-base);
+  border:1px solid; border-radius:0; text-decoration:none; position:relative; overflow:hidden; }
+.ac-btn--green { color:var(--neon-green); border-color:var(--neon-green); }
+.ac-btn--green:hover { background-color:var(--neon-green-alpha-10); box-shadow:var(--glow-green); color:var(--neon-green); }
+.ac-btn--blue { color:var(--neon-blue); border-color:var(--neon-blue); }
+.ac-btn--blue:hover { background-color:var(--neon-blue-alpha-10); box-shadow:var(--glow-blue); color:var(--neon-blue); }
+.ac-btn--orange { color:var(--neon-orange); border-color:var(--neon-orange); }
+.ac-btn--orange:hover { background-color:var(--neon-orange-alpha-20); color:var(--neon-orange); }
+.ac-btn--sm { padding:8px 16px; font-size:var(--text-xs); }
+.ac-btn:disabled { opacity:0.4; cursor:not-allowed; box-shadow:none; background-color:transparent; }
+`;
+
+function injectButtonCss() {
+  if (typeof document === 'undefined' || document.getElementById('ac-btn-css')) return;
+  const el = document.createElement('style');
+  el.id = 'ac-btn-css';
+  el.textContent = BTN_CSS;
+  document.head.appendChild(el);
+}
+
+/**
+ * Website ghost button — outlined, uppercase mono, neon tint + glow on hover.
+ */
+export function Button({ color = 'green', size = 'md', icon, href, disabled, children, onClick, style }) {
+  injectButtonCss();
+  const cls = `ac-btn ac-btn--${color}${size === 'sm' ? ' ac-btn--sm' : ''}`;
+  const content = (
+    <React.Fragment>
+      {icon ? <i className={icon} aria-hidden="true"></i> : null}
+      {children}
+    </React.Fragment>
+  );
+  if (href && !disabled) {
+    return <a className={cls} href={href} onClick={onClick} style={style}>{content}</a>;
+  }
+  return <button className={cls} disabled={disabled} onClick={onClick} style={style}>{content}</button>;
+}

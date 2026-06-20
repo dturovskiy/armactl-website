@@ -1,0 +1,19 @@
+/**
+ * Website ghost button. Transparent with a 1px neon border; tint + glow on hover.
+ * @dsCard see buttons in web.card.html
+ * @startingPoint section="Web" subtitle="Outlined neon CTA button" viewport="700x180"
+ */
+export interface ButtonProps {
+  /** Accent color role. green = primary action, blue = secondary/info, orange = warning. Default 'green'. */
+  color?: 'green' | 'blue' | 'orange';
+  /** 'md' (12×24px padding) or 'sm'. Default 'md'. */
+  size?: 'md' | 'sm';
+  /** Optional Font Awesome class rendered before the label, e.g. "fa-brands fa-github". */
+  icon?: string;
+  /** Render as an <a> with this href instead of a <button>. */
+  href?: string;
+  disabled?: boolean;
+  onClick?: (e: any) => void;
+  style?: any;
+  children?: any;
+}

@@ -1,0 +1,36 @@
+/* ============================================================
+   armactl — typography tokens
+   Display: 'Nico Moji' (pixel-flavored Japanese-latin display)
+   Body & code: 'Roboto Mono' — EVERYTHING runs in monospace.
+   Loaded from Google Fonts (see fonts/fonts.css).
+   ============================================================ */
+
+:root {
+  --font-display: 'Nico Moji', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  /* Weights — Roboto Mono ships 300 / 400 / 600 on the site */
+  --weight-light: 300;     /* body paragraphs */
+  --weight-regular: 400;   /* UI text, terminal output */
+  --weight-semibold: 600;  /* buttons, card titles, emphasized values */
+
+  /* Type scale (website) */
+  --text-xs: 0.8rem;       /* footer legal, terminal titles, dropdown items */
+  --text-sm: 0.9rem;       /* nav links, buttons, terminal output, small body */
+  --text-base: 1rem;       /* body paragraphs */
+  --text-md: 1.1rem;       /* value titles, overview prose */
+  --text-lg: 1.2rem;       /* hero lead, card titles */
+  --text-xl: 1.5rem;       /* logo wordmark */
+  --text-2xl: 2.5rem;      /* section headings (h2) */
+  --text-3xl: 3rem;        /* ghost value numbers */
+  --text-hero: clamp(2.5rem, 5vw, 4rem); /* hero h1 */
+
+  /* Letterspacing — wide tracking on uppercase mono */
+  --tracking-tight: 0;
+  --tracking-wide: 1px;    /* buttons, nav, value titles */
+  --tracking-display: 2px; /* logo wordmark */
+
+  --leading-tight: 1.1;    /* hero */
+  --leading-snug: 1.5;     /* dense card prose */
+  --leading-base: 1.6;     /* body default */
+}

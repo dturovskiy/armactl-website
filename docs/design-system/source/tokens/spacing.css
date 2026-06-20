@@ -1,0 +1,21 @@
+/* ============================================================
+   armactl — spacing & layout tokens
+   rem-based, generous vertical rhythm. Sharp grid, no fluff.
+   ============================================================ */
+
+:root {
+  --space-1: 0.25rem;   /*  4px — dot gaps, hairline offsets */
+  --space-2: 0.5rem;    /*  8px — icon-to-label gaps */
+  --space-3: 0.75rem;   /* 12px — button padding-y */
+  --space-4: 1rem;      /* 16px — base unit, terminal padding */
+  --space-5: 1.5rem;    /* 24px — button padding-x, paragraph margin */
+  --space-6: 2rem;      /* 32px — grid gaps, card padding */
+  --space-7: 2.5rem;    /* 40px — feature card padding-y */
+  --space-8: 4rem;      /* 64px — section-header margin, footer padding */
+  --space-section: 120px; /* vertical section padding on the website */
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-pad: 5%;
+  --header-height: 80px;
+}

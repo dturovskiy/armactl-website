@@ -1,0 +1,40 @@
+import React from 'react';
+
+const FC_CSS = `
+.ac-feature-card { background-color: var(--bg-dark); border: 1px solid var(--bg-panel);
+  padding: var(--space-7) var(--space-6); transition: all var(--transition-base);
+  position: relative; z-index: 1; font-family: var(--font-mono); }
+.ac-feature-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px;
+  background-color: transparent; transition: background-color var(--transition-base); }
+.ac-feature-card:hover { transform: var(--hover-lift); border-color: var(--neon-blue-alpha-30);
+  box-shadow: var(--shadow-card-hover); }
+.ac-feature-card:hover::before { background-color: var(--neon-blue); }
+.ac-feature-card__icon { font-size: 2rem; color: var(--neon-blue); margin-bottom: var(--space-5); }
+.ac-feature-card__title { font-size: var(--text-lg); margin: 0 0 var(--space-4) 0;
+  font-family: var(--font-mono); font-weight: var(--weight-semibold); color: var(--heading-color); }
+.ac-feature-card__body { margin: 0; font-size: var(--text-base); font-weight: var(--weight-light);
+  color: var(--text-main); line-height: var(--leading-base); }
+`;
+
+function injectFeatureCardCss() {
+  if (typeof document === 'undefined' || document.getElementById('ac-feature-card-css')) return;
+  const el = document.createElement('style');
+  el.id = 'ac-feature-card-css';
+  el.textContent = FC_CSS;
+  document.head.appendChild(el);
+}
+
+/**
+ * Website feature card — bordered dark card with a blue FA icon; lifts and
+ * grows a 2px blue top bar on hover.
+ */
+export function FeatureCard({ icon, title, children, style }) {
+  injectFeatureCardCss();
+  return (
+    <div className="ac-feature-card" style={style}>
+      {icon ? <div className="ac-feature-card__icon"><i className={icon} aria-hidden="true"></i></div> : null}
+      <h3 className="ac-feature-card__title">{title}</h3>
+      <p className="ac-feature-card__body">{children}</p>
+    </div>
+  );
+}

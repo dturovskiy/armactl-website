@@ -1,0 +1,42 @@
+/* ============================================================
+   armactl — borders, radii, shadows, glows, motion
+   Rule #1: corners are SHARP. radius is 0 everywhere except
+   perfect circles (terminal dots, logo roundel).
+   ============================================================ */
+
+:root {
+  /* Radii */
+  --radius-none: 0;
+  --radius-full: 50%;
+
+  /* Borders */
+  --border-width: 1px;
+  --border-accent-width: 3px;   /* overview-box left rule */
+  --border-panel: 1px solid var(--bg-panel);
+  --border-hairline: 1px solid var(--border-light);
+
+  /* Shadows — deep ambient drop + optional neon ring */
+  --shadow-panel: 0 20px 40px var(--shadow-color);
+  --shadow-window: 0 20px 40px var(--shadow-color), 0 0 0 1px var(--neon-blue-alpha-10);
+  --shadow-card-hover: 0 10px 30px var(--shadow-color);
+  --shadow-dropdown: 0 10px 30px var(--shadow-color);
+
+  /* Neon glows — used on hover/focus of accent elements */
+  --glow-green: 0 0 15px var(--neon-green-alpha-30);
+  --glow-blue: 0 0 15px var(--neon-blue-alpha-30);
+
+  /* Motion — one easing, one speed. No bounces. */
+  --transition-base: 0.3s ease; /* @kind other */
+  --transition-fast: 0.2s ease; /* @kind other */
+  --hover-lift: translateY(-5px);   /* @kind other */
+  --hover-nudge: translateY(-2px);  /* @kind other */
+
+  /* Cursor blink (terminal caret) */
+  --blink-duration: 1s; /* @kind other */
+}
+
+/* Shared keyframes */
+@keyframes armactl-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

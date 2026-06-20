@@ -1,0 +1,52 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Web primitives" subtitle="Button, SectionHeader, FeatureCard, ValueItem, TerminalWindow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background-color: var(--bg-dark); padding: 20px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Button, SectionHeader, FeatureCard, ValueItem, TerminalWindow } = window.ArmactlDesignSystem_2b0eb8;
+
+function Card() {
+  return (
+    <div className="armactl-root" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', alignItems: 'start' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Button icon="fa-brands fa-github">Download</Button>
+          <Button color="blue" size="sm">Docs</Button>
+          <Button color="orange" size="sm">Repair</Button>
+          <Button size="sm" disabled>Disabled</Button>
+        </div>
+        <SectionHeader title="Core Capabilities" accent="green" style={{ marginBottom: 0 }} />
+        <ValueItem number="01" title="Practical">
+          Designed for real-world server environments.
+        </ValueItem>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <TerminalWindow>
+          <div className="ac-cmd-line"><span className="ac-cmd-path">operator@ubuntu:~$</span> sudo armactl status</div>
+          <div className="ac-cmd-line">Service: <span className="ac-cmd-success">active (running)</span></div>
+          <div className="ac-cmd-line"><span className="ac-cmd-path">operator@ubuntu:~$</span> <span className="ac-terminal__cursor"></span></div>
+        </TerminalWindow>
+        <FeatureCard icon="fa-solid fa-terminal" title="Terminal User Interface">
+          Comprehensive server management through a structured TUI.
+        </FeatureCard>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card />);
+</script>
+</body>
+</html>

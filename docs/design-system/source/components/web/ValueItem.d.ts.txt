@@ -1,0 +1,8 @@
+/** "Operational Philosophy" list item — large ghost number, orange uppercase title, muted prose. */
+export interface ValueItemProps {
+  /** Display number, e.g. "01". */
+  number: string;
+  title: string;
+  children?: any;
+  style?: any;
+}

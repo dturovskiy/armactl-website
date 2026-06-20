@@ -1,0 +1,9 @@
+/** Website feature card — bordered dark card, blue icon, hover lift + 2px blue top bar. Use in auto-fit minmax(280px,1fr) grids. */
+export interface FeatureCardProps {
+  /** Font Awesome class for the 2rem blue icon, e.g. "fa-solid fa-server". */
+  icon?: string;
+  title: string;
+  /** Card body prose (weight 300). */
+  children?: any;
+  style?: any;
+}

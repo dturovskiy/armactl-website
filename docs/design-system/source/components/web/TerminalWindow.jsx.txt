@@ -1,0 +1,54 @@
+import React from 'react';
+
+const TW_CSS = `
+.ac-terminal { background-color: var(--bg-darker); border: 1px solid var(--bg-panel);
+  box-shadow: var(--shadow-window); font-family: var(--font-mono); border-radius: 0; }
+.ac-terminal__header { background-color: var(--bg-panel); padding: 10px 16px;
+  display: flex; align-items: center; gap: 8px; }
+.ac-terminal__dot { width: 12px; height: 12px; border-radius: 50%; }
+.ac-terminal__title { margin-left: 8px; color: var(--text-muted); font-size: var(--text-xs); }
+.ac-terminal__body { padding: var(--space-4) var(--space-5); font-size: var(--text-sm);
+  line-height: 1.8; color: var(--text-main); overflow-x: auto; }
+.ac-terminal__body .prompt { color: var(--neon-green); }
+.ac-terminal__body .output { color: var(--text-muted); }
+.ac-terminal__body .ok { color: var(--neon-green); }
+.ac-terminal__body .warn { color: var(--neon-orange); }
+.ac-terminal__body .info { color: var(--neon-blue); }
+.ac-terminal__cursor { display: inline-block; width: 8px; height: 1em;
+  background-color: var(--neon-green); vertical-align: text-bottom;
+  animation: armactl-blink var(--blink-duration) step-end infinite; }
+`;
+
+function injectTerminalCss() {
+  if (typeof document === 'undefined' || document.getElementById('ac-terminal-css')) return;
+  const el = document.createElement('style');
+  el.id = 'ac-terminal-css';
+  el.textContent = TW_CSS;
+  document.head.appendChild(el);
+}
+
+/**
+ * Terminal window chrome — traffic-light dots, muted title, dark body.
+ * Children are the terminal lines; use .prompt/.output/.ok/.warn/.info
+ * spans for coloring, and <TerminalCursor/> for the blinking caret.
+ */
+export function TerminalWindow({ title = 'operator@ubuntu: ~', children, style }) {
+  injectTerminalCss();
+  return (
+    <div className="ac-terminal" style={style}>
+      <div className="ac-terminal__header">
+        <span className="ac-terminal__dot" style={{ backgroundColor: 'var(--dot-red)' }}></span>
+        <span className="ac-terminal__dot" style={{ backgroundColor: 'var(--dot-yellow)' }}></span>
+        <span className="ac-terminal__dot" style={{ backgroundColor: 'var(--dot-green)' }}></span>
+        <span className="ac-terminal__title">{title}</span>
+      </div>
+      <div className="ac-terminal__body">{children}</div>
+    </div>
+  );
+}
+
+/** Blinking green block caret for terminal bodies. */
+export function TerminalCursor() {
+  injectTerminalCss();
+  return <span className="ac-terminal__cursor"></span>;
+}

@@ -1,0 +1,9 @@
+/** Website section heading — Nico Moji h2 with 2px accent underline; one per section. */
+export interface SectionHeaderProps {
+  title: string;
+  /** Underline color. The site rotates per section: overview=blue, capabilities=green, philosophy=orange. Default 'blue'. */
+  accent?: 'blue' | 'green' | 'orange';
+  /** Optional lead paragraph under the heading. */
+  lead?: string;
+  style?: any;
+}

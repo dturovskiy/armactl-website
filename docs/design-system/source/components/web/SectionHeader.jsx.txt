@@ -1,0 +1,35 @@
+import React from 'react';
+
+const SH_CSS = `
+.ac-section-header { margin-bottom: var(--space-8); max-width: 700px; }
+.ac-section-header__title { font-family: var(--font-display); font-weight: normal;
+  letter-spacing: var(--tracking-wide); color: var(--heading-color);
+  font-size: var(--text-2xl); display: inline-block; padding-bottom: 10px;
+  border-bottom: 2px solid var(--neon-blue); margin: 0 0 1rem 0; }
+.ac-section-header__lead { color: var(--text-main); font-family: var(--font-mono);
+  font-weight: var(--weight-light); font-size: var(--text-base); margin: 0; }
+`;
+
+function injectSectionHeaderCss() {
+  if (typeof document === 'undefined' || document.getElementById('ac-section-header-css')) return;
+  const el = document.createElement('style');
+  el.id = 'ac-section-header-css';
+  el.textContent = SH_CSS;
+  document.head.appendChild(el);
+}
+
+/**
+ * Website section heading — Nico Moji h2 with a 2px accent underline.
+ */
+export function SectionHeader({ title, accent = 'blue', lead, style }) {
+  injectSectionHeaderCss();
+  const accentVar = accent === 'green' ? 'var(--neon-green)'
+    : accent === 'orange' ? 'var(--neon-orange)'
+    : 'var(--neon-blue)';
+  return (
+    <div className="ac-section-header" style={style}>
+      <h2 className="ac-section-header__title" style={{ borderColor: accentVar }}>{title}</h2>
+      {lead ? <p className="ac-section-header__lead">{lead}</p> : null}
+    </div>
+  );
+}

@@ -1,0 +1,161 @@
+/* armactl marketing site recreation — composes DS web primitives. */
+const { Button, SectionHeader, FeatureCard, ValueItem, TerminalWindow } = window.ArmactlDesignSystem_2b0eb8;
+
+function SiteHeader({ theme, onToggleTheme }) {
+  return (
+    <header className="site-header">
+      <div className="container nav-container">
+        <div className="logo-container">
+          <img src="../../assets/logo.png" alt="armactl logo" className="logo-img" />
+          <span className="logo-text">ARMActl</span>
+        </div>
+        <ul className="nav-links">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#features">Capabilities</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+        </ul>
+        <div className="nav-actions">
+          <button className="theme-toggle-btn" onClick={onToggleTheme} aria-label="Toggle light/dark theme">
+            <i className={theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'}></i>
+          </button>
+          <Button icon="fa-brands fa-github" href="#download">Download</Button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="hero">
+      <div className="container hero-grid">
+        <div>
+          <h1><span className="terminal-prompt">$</span>armactl<span className="ac-terminal__cursor" style={{ width: '14px', height: '0.9em', marginLeft: '6px' }}></span></h1>
+          <p className="hero-lead">Installer, manager, and TUI for Arma Reforger Dedicated Server on Ubuntu.</p>
+        </div>
+        <TerminalWindow title="operator@ubuntu: ~">
+          <div className="ac-cmd-line"><span className="ac-cmd-path">operator@ubuntu:~$</span> sudo armactl status</div>
+          <div className="ac-cmd-line ac-cmd-heading">[+] Arma Reforger Server Daemon Status</div>
+          <div className="ac-cmd-line">
+            Service: <span className="ac-cmd-success">active (running)</span><br />
+            Uptime: 14h 22m<br />
+            Players: 42/64<br />
+            Mods loaded: 12
+          </div>
+          <div className="ac-cmd-line"><span className="ac-cmd-path">operator@ubuntu:~$</span> _</div>
+        </TerminalWindow>
+      </div>
+    </section>
+  );
+}
+
+function Overview() {
+  return (
+    <section id="overview" className="overview">
+      <div className="container">
+        <SectionHeader title="System Overview" accent="blue" />
+        <div className="overview-box">
+          <p>armactl is an open-source installer and management tool designed specifically for Arma Reforger Dedicated Servers operating on Ubuntu hosts.</p>
+          <p>It provisions technical operators with a specialized terminal user interface (TUI) to handle installation, server detection, repairs, systemd management, and mod configuration within a unified, seamless environment.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Features() {
+  return (
+    <section id="features" className="features">
+      <div className="container">
+        <SectionHeader title="Core Capabilities" accent="green" />
+        <div className="features-grid">
+          <FeatureCard icon="fa-solid fa-terminal" title="Terminal User Interface">
+            Execute comprehensive server management through a structured, highly responsive TUI designed for specialized server operators.
+          </FeatureCard>
+          <FeatureCard icon="fa-solid fa-server" title="Detection &amp; Repair">
+            Automated server state detection protocols with built-in mechanisms to diagnose and repair structural installation faults.
+          </FeatureCard>
+          <FeatureCard icon="fa-solid fa-microchip" title="systemd Management">
+            Seamless system integration. Manage daemon states, monitor resource consumption, and ensure high-availability via native systemd hooks.
+          </FeatureCard>
+          <FeatureCard icon="fa-solid fa-cubes" title="Mod Configuration">
+            Unified environment for parsing, structuring, and deploying mod configurations to maintain customized server integrity.
+          </FeatureCard>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Philosophy() {
+  return (
+    <section id="philosophy" className="values">
+      <div className="container">
+        <SectionHeader
+          title="Operational Philosophy"
+          accent="orange"
+          lead="armactl is built on a foundation of utility-driven design, focusing entirely on practical efficiency for high-performance deployments."
+        />
+        <div className="values-grid">
+          <ValueItem number="01" title="Practical">
+            Designed for real-world server environments, prioritizing speed, reliability, and automated workflows over unnecessary complexity.
+          </ValueItem>
+          <ValueItem number="02" title="Technical Transparency">
+            Every command and configuration change is clearly presented. No black-box operations, ensuring full understanding of all processes.
+          </ValueItem>
+          <ValueItem number="03" title="System Integrity">
+            Preserving system stability by avoiding hidden changes, keeping a minimal resource footprint, and leaving the operator in full control.
+          </ValueItem>
+          <ValueItem number="04" title="Constructive">
+            Built to scale and adapt. Continuously improved through community feedback to provide robust solutions for complex deployments.
+          </ValueItem>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="logo-container">
+            <img src="../../assets/logo.png" alt="armactl logo" className="logo-img" />
+            <span className="logo-text" style={{ color: 'var(--text-muted)', fontSize: '1.2rem' }}>ARMActl</span>
+          </div>
+          <ul className="nav-links" style={{ gap: '1.5rem' }}>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#features">Capabilities</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+          </ul>
+          <div className="social-links">
+            <a href="https://github.com/dturovskiy/armactl" aria-label="GitHub"><i className="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/denysturovskiy" aria-label="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; armactl. Open-source installer and management tool for Arma Reforger Dedicated Servers.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Site() {
+  const [theme, setTheme] = React.useState('dark');
+  return (
+    <div className={`site${theme === 'light' ? ' theme-light' : ''}`}>
+      <SiteHeader theme={theme} onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+      <Hero />
+      <Overview />
+      <div className="image-break" style={{ backgroundImage: "url('../../assets/9vKdT5AUFdD8Ye9AJ7w_ze.jpg')" }}></div>
+      <Features />
+      <div className="image-break" style={{ backgroundImage: "url('../../assets/b0Mscz0brl44v1PRbSf4Hl.jpg')", height: '300px' }}></div>
+      <Philosophy />
+      <SiteFooter />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Site />);

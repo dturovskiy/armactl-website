@@ -1,0 +1,9 @@
+/* ============================================================
+   armactl — webfonts
+   Both brand families ship on Google Fonts; the website loads
+   them from there, so the design system does the same.
+   - Nico Moji  (display — headings, logo wordmark)
+   - Roboto Mono 300/400/600 (everything else)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nico+Moji&family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,400&display=swap');
